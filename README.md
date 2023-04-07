@@ -69,3 +69,16 @@ El nombre con el que quiero que se cree mi volumen/app
  volumes:
       - './my-project:/app' => - './docker_tp_integrador:/app'
 ```
+
+- 3 Ejecuto el comando para crear y correr los contenedores
+```
+ docker-compose up -d  o docker-compose up
+```
+
+  Luego del paso del punto 3:
+```
+Se creo la app/proyacto (en este caso "docker_tp_integrador") completo
+```
+```
+En el .env se agregó "DATABASE_URL=mysql://user_db@mariadb:3306/compras_db".
+```
