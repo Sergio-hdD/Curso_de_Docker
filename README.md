@@ -100,3 +100,7 @@ docker exec -it c_1_mariadb mysql -u user_db -p
 ``` 
 #### (dónde “c_1_mariadb” es el nombre del contenedor de mi bd y user_db es el usuario).
 #### Cuando pide la contraseña, simplemente doy enter, ya que especifiqué que para el user user_bd no hay contraseña y luego puedo realizar las consultas como en mysql común.
+
+```
+  agrego un pdf que contiene los pasos y otros detalles con imagenes
+``` 
