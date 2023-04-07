@@ -82,3 +82,21 @@ Se creo la app/proyacto (en este caso "docker_tp_integrador") completo
 ```
 En el .env se agregó "DATABASE_URL=mysql://user_db@mariadb:3306/compras_db".
 ```
+
+- 4 Con los contenedores corriendo, accedo al bash del contenedor  de mi app para esto ejecuto
+```
+  docker exec -it c_app_compras /bin/bash
+```
+#### (dónde “c_app_compras” es el nombre del contenedor de mi app).
+#### Con esto puedo trabajar con symfony como lo hago desde una consola fuera de un contenedor.
+#### Luego de esto Hago la clase Cliente, la clase Compra y actualizo la bd (no creo la bd, dado que se crea junto con el contenedor), todo esto como se realiza habitualmente con symfony.
+#### Para salir del bash del contenedor ejecuto
+```
+  exit
+```
+- 5 Para acceder a la base de datos por consola (siempre con los contenedores corriendo) ejecuto: 
+```
+docker exec -it c_1_mariadb mysql -u user_db -p
+``` 
+#### (dónde “c_1_mariadb” es el nombre del contenedor de mi bd y user_db es el usuario).
+#### Cuando pide la contraseña, simplemente doy enter, ya que especifiqué que para el user user_bd no hay contraseña y luego puedo realizar las consultas como en mysql común.
