@@ -1,0 +1,29 @@
+version: '2'
+
+services:
+  mariadb: 
+    image: docker.io/bitnami/mariadb:10.6
+    container_name: c_1_mariadb 
+    environment:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      - ALLOW_EMPTY_PASSWORD=yes
+      - MARIADB_USER=user_db
+      - MARIADB_DATABASE=compras_db
+  appcompras:
+    image: docker.io/bitnami/symfony:6.2
+    container_name: c_app_compras
+    ports:
+      - '8080:8000'
+    environment:
+        # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      - ALLOW_EMPTY_PASSWORD=yes
+      - SYMFONY_DATABASE_HOST=mariadb
+      - SYMFONY_DATABASE_PORT_NUMBER=3306
+      - SYMFONY_DATABASE_USER=user_db
+      - SYMFONY_DATABASE_NAME=compras_db
+      - SYMFONY_PROJECT_SKELETON=symfony/skeleton
+    volumes:
+      - './docker_tp_integrador:/app'
+    depends_on:
+      - mariadb
+
